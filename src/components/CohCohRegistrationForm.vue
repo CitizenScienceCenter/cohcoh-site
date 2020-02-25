@@ -98,6 +98,7 @@
 
                 <div class="row row-centered row-wrapping">
 
+                    <!--
                     <div class="col col-wrapping col-large-6">
                         <div class="form-field form-field-block">
                             <label for="reg-firstname">{{ $t("label-firstname") }}</label>
@@ -111,6 +112,7 @@
                             <input v-model="lastname" id="reg-lastname" />
                         </div>
                     </div>
+                    -->
 
                     <template v-if="!user.currentUser || user.isAnon">
                     <div class="col col-wrapping col-large-6">
@@ -260,8 +262,8 @@
                     </template>
 
                     <div class="button-group right-aligned">
-                        <button v-if="user.isAnon" :disabled="!firstname || !lastname || !email || !password || errors.emailInUse || errors.emailInUse || errors.usernameInUse || errors.passwordLength || errors.passwordMatch" type="submit" class="button button-primary">{{ $t("button-register") }}</button>
-                        <button v-else :disabled="!firstname || !lastname" type="submit" class="button button-primary">{{ $t("button-register") }}</button>
+                        <button v-if="user.isAnon" :disabled="!email || !password || errors.emailInUse || errors.emailInUse || errors.usernameInUse || errors.passwordLength || errors.passwordMatch" type="submit" class="button button-primary">{{ $t("button-register") }}</button>
+                        <button v-else type="submit" class="button button-primary">{{ $t("button-register") }}</button>
                     </div>
 
                     <div class="form-message form-message-error" v-if="errors.server">
@@ -299,8 +301,6 @@
         components: {GrowingTextarea},
         data() {
             return {
-                firstname: "",
-                lastname: "",
                 email: "",
                 username: '',
                 password: "",
@@ -340,8 +340,10 @@
             newUserInfo() {
                 return {
                     'anonymous': false,
+                    /*
                     'firstname': this.firstname,
                     'lastname': this.lastname,
+                    */
                     'center-notifications': this.centerNotification,
                     'project-notifications': [
                         this.projectId
@@ -364,8 +366,10 @@
             existingUserInfo() {
                 return {
                     'anonymous': false,
+                    /*
                     'firstname': this.firstname,
                     'lastname': this.lastname,
+                     */
                     'project-notifications': [
                         this.projectId
                     ],
@@ -537,9 +541,10 @@
                     // update an existing user
                     const info = JSON.parse(JSON.stringify(this.user.currentUser.info));
 
+                    /*
                     info['firstname'] = this.existingUserInfo['firstname'];
                     info['lastname'] = this.existingUserInfo['lastname'];
-
+                    */
 
                     if( !Array.isArray( info['project-notifications'] ) ) {
                         // for snake notification users (where value "true")
