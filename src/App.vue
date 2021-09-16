@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <app-header project-name="Cause of<br/>Health" :languages="languages"></app-header>
+    <app-header project-name="Cause of<br/>Health" :languages="languages" :beta="false" :hideLogin="true"></app-header>
     <div class="content-area">
       <router-view></router-view>
     </div>

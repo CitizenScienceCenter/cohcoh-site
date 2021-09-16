@@ -113,9 +113,9 @@
           <div class="col col-tablet-portrait-7 col-large-6 col-large-before-1 col-wrapping scroll-effect">
             <h2 class="heading centered left-aligned-large">{{ $t('participate-heading') }}</h2>
             <p v-html="$t('participate-text')"></p>
-            <div class="button-group centered left-aligned-large">
+            <!-- <div class="button-group centered left-aligned-large">
               <router-link tag="button" to="/registration" class="button button-primary">{{ $t('participate-button') }}</router-link>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
